@@ -64,19 +64,21 @@ sys("cls" if sysname == "nt" else "clear")
 print('Calculating: "GB ÷ MB"\n\n')
 
 try:
-    # Take user input.
-    _gb = input("Enter the gigabytes (GB): ")  # GB value to test for invalid input.
-    _mb = input("Enter the megabytes (MB): ")  # MB value to test for invalid input.
-
     gb = 0  # Will store the value of _gb as an int after tests.
     mb = 0  # Will store the value of _mb as an int after tests.
-
+    
+    # Take user input for GB.
+    _gb = input("Enter the gigabytes (GB): ")  # GB value to test for invalid input.
+    
     # test if the GB value contains non-digit characters.
     if re.search(r"\D", _gb):
         raise ValueError("GB cannot contain non-digit characters.")
     else:
         gb = int(_gb)  # Store the GB as an int.
 
+    # Take user input for MB.
+    _mb = input("Enter the megabytes (MB): ")  # MB value to test for invalid input.
+    
     # Test if the MB value contains non-digit characters.
     if re.search(r"\D", _mb):
         raise ValueError("MB cannot contain non-digit characters.")
