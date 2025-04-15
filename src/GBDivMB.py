@@ -1,6 +1,8 @@
-import os
+from os import _exit as close_prog, system as sys, name as sysname
+import re  # Used to test if the GB or MB values contain digits.
 
 
+# The main class used in the program.
 class GBdivMB:
     """The class that contains most of the program's logic."""
 
@@ -54,30 +56,73 @@ class GBdivMB:
 
         return res
 
-# Print the program title
-print("Calculating \n\"GB ÷ MB\"\n\n")
+
+# Clear the terminal screen before the program starts.
+sys("cls" if sysname == "nt" else "clear")
+
+# Print the program title.
+print('Calculating: "GB ÷ MB"\n\n')
 
 try:
-    gb = int(input("Enter the gigabytes (GB): "))
-    mb = int(input("Enter the megabytes (MB): "))
+    # Take user input.
+    _gb = input("Enter the gigabytes (GB): ")  # GB value to test for invalid input.
+    _mb = input("Enter the megabytes (MB): ")  # MB value to test for invalid input.
 
+    gb = 0  # Will store the value of _gb as an int after tests.
+    mb = 0  # Will store the value of _mb as an int after tests.
+
+    # test if the GB value contains non-digit characters.
+    if re.search(r"\D", _gb):
+        raise ValueError("GB cannot contain non-digit characters.")
+    else:
+        gb = int(_gb)  # Store the GB as an int.
+
+    # Test if the MB value contains non-digit characters.
+    if re.search(r"\D", _mb):
+        raise ValueError("MB cannot contain non-digit characters.")
+    else:
+        mb = int(_mb)  # Store the MB as an int.
+
+    # If the GB value is greater than or equal to 1 exabyte (1024 petabytes)
+    if gb >= 1073741824:
+        # Raise a Value Error.
+        raise ValueError("GB value too high.")
+
+    # If the MB value is invalid (less than or equal to 0)
+    if mb <= 0:
+        # Raise a value error.
+        raise ValueError("MB value too low.")
+
+    # Initialise the "GBdivMB" object with the user's input.
     gdm = GBdivMB(gb, mb)
-    
+
     # Display the output throught the object's
-    # string representation ( the "__str__()" method).
+    # string representation (the "__str__()" method).
     print(gdm)
 except ValueError as ve:
-    print(ve)    
-    os._exit(-1)
+    # Print the exception and exit the program with status -1.
+    print(ve)
+    close_prog(-1)
 except NameError as ne:
+    # Print the exception and exit the program with status -1.
     print(ne)
-    os._exit(-1)
+    close_prog(-1)
 except TypeError as te:
+    # Print the exception and exit the program with status -1.
     print(te)
-    os._exit(-1)
-except KeyboardInterrupt as ki:
+    close_prog(-1)
+except KeyboardInterrupt:
     print("\n\nExiting...")
-    os._exit(0)
+    # Close the program with status 0.
+    close_prog(0)
 except Exception as ex:
+    # Print the exception and exit the program with status -1.
     print(ex)
-    os._exit(-1)
+    close_prog(-1)
+else:
+    # Prompt the user to press enter in order to exit the program.
+    input("Press enter to exit.")
+    # Clear the terminal screen.
+    sys("cls" if sysname == "nt" else "clear")
+    # Exit the program with status 0.
+    close_prog(0)

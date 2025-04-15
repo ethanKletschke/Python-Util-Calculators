@@ -3,3 +3,6 @@
 
 # Python Cached Bytecode
 **/__pycache__
+
+# Editorconfig
+.editorconfig
