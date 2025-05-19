@@ -6,3 +6,6 @@
 
 # Editorconfig
 .editorconfig
+
+# Virtual Environment on Ubuntu
+.venv
