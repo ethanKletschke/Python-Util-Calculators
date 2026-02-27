@@ -1,0 +1,24 @@
+project-meta:
+  project-name: Python Utility Calculators
+  languages:
+    - Python
+  status: Canceled
+  license: MIT
+  version: 1.0.1
+build:
+  dev-environments:
+    - Windows 11
+    - Ubuntu (WSL2)
+  test-environments:
+    - Windows 11
+    - Ubuntu (WSL2)
+  target-platforms:
+    - Windows 11
+    - Ubuntu (WSL2)
+team:
+  author: Ethan Kletschke
+  contributors:
+    - name: Ethan Kletschke
+      role: Author and Owner
+      github-username: ethanKletschke
+      website: https://ethankletschke.netlify.app/

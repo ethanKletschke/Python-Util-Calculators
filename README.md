@@ -8,6 +8,7 @@ megabytes (MB). Skills reference only.
 - Version: `1.0.1`
 - Environment: Ubuntu (WSL)
   - Previously Windows 11
+- Metadata file: []
 
 ## Scripts Included
 
