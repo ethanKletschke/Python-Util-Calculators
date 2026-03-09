@@ -8,7 +8,7 @@ megabytes (MB). Skills reference only.
 - Version: `1.0.1`
 - Environment: Ubuntu (WSL)
   - Previously Windows 11
-- Metadata file: []
+- Metadata file: [project.yaml](./meta/project.yaml)
 
 ## Scripts Included
 
